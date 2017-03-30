@@ -1,0 +1,31 @@
+jonathan_cregut_voting_homepage:
+    path:     /
+    defaults: { _controller: JonathanCregutVotingBundle:Default:index }
+
+questions:
+    path:     /questions
+    defaults: { _controller: JonathanCregutVotingBundle:Default:questions }
+    
+responses:
+    path:     /responses
+    defaults: { _controller: JonathanCregutVotingBundle:Default:responses }
+    
+display:
+    path:     /afficher
+    defaults: { _controller: JonathanCregutVotingBundle:Default:display }
+    
+participants:
+    path:     /participants
+    defaults: { _controller: JonathanCregutVotingBundle:Default:participants }
+    
+detailedResults:
+    path:     /response/details/{question_id}   
+    defaults: { _controller: JonathanCregutVotingBundle:Default:detailedResults }
+    
+getvote:
+    path:      /vote
+    defaults: { _controller: JonathanCregutVotingBundle:Default:vote }
+    
+stateQuestion:
+    path:       /state/{question_id}/{state}
+    defaults: { _controller: JonathanCregutVotingBundle:Default:stateQuestion }

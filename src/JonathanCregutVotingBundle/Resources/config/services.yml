@@ -1,0 +1,4 @@
+services:
+#    jonathan_cregut_voting.example:
+#        class: JonathanCregutVotingBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

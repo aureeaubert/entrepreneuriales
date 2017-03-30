@@ -1,0 +1,28 @@
+{% extends "JonathanCregutVotingBundle:Default:main_layout.html.twig" %}
+
+{% block insidelayout %}
+{% for question in questions %}
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <p class="lead">{{ question.content }}</p>
+        {% if question.state == 1 %}
+            <span class="label label-success">En cours</span>
+        {% elseif question.state == 0 %}
+            <span class="label label-warning">En attente</span>
+        {% else %}
+            <span class="label label-danger">Cloturé</span>
+        {% endif %}
+    </div>
+    <div class="panel-footer">
+        <a href="{{ path('detailedResults', { 'question_id' : question.id }) }}" class="btn btn-primary">Voir résultats</a>
+        {% if question.state == 1 %}
+        <a href="{{ path('stateQuestion', { 'question_id' : question.id, 'state': 2 }) }}" class="btn btn-danger">Cloturer la question</a>
+        {% elseif question.state == 0 %}
+        <a href="{{ path('stateQuestion', { 'question_id' : question.id, 'state': 1 }) }}" class="btn btn-success">Démarrer la question</a>
+        {% endif %}
+    </div>
+</div>
+{% else %}
+<p class="alert alert-warning">Il n'y a actuellement pas encore de questions</p>
+{% endfor %}
+{% endblock %}

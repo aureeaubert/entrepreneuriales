@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Vote SMS entreups</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/jonathancregutvoting/css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/jonathancregutvoting/css/docs.css') }}">
+    <link rel="icon" href="/favicon.ico">
+
+    <style>
+        .featurette-divider {
+            margin: 80px 0; /* <hr> between each */
+        }
+    </style>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+    <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#seven-menu">
+                    <span class="sr-only">Voir le Menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="{{ path('jonathan_cregut_voting_homepage') }}" class="navbar-brand">Entrepreneuriales 2017</a>
+            </div>
+            <div class="navbar-collapse collapse" id="seven-menu">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{{ path('questions') }}">Nouvelle Question</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('responses') }}">Réponses</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('participants') }}">Participants</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    {% if title is defined %}
+    <div class="bs-docs-header">
+        <div class="container">
+            {% if title_image is defined %}
+                <img class="transparentDoc" src="{{ title_image }}" alt="Title Image" />
+            {% endif %}
+            <div id="titlediv">
+            <h1 style="margin-top: 30px">{{ title }}</h1>
+            </div>
+            {% if subtitle is defined %}
+            <div id="subtitlediv">
+                <p>{{ subtitle }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% else %}
+        <div style="margin-top: 65px"></div>
+    {% endif %}
+    {% if no_container is not defined %}
+    <div class="container">
+    {% endif %}
+        {% block insidelayout %}
+        Hello buddy!
+        {% endblock %}
+    {% if no_container is not defined %}
+    </div>
+    {% endif %}
+    <footer class="bs-docs-footer" role="contentinfo">
+        <div class="container">
+            <p>© Entrepreneuriales 2017</p>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="{{ asset('bundles/jonathancregutvoting/js/bootstrap.min.js') }}"></script>
+    </body>
+</html> 

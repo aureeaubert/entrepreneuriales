@@ -1,0 +1,46 @@
+{% extends "JonathanCregutVotingBundle:Default:main_layout.html.twig" %}
+
+{% block insidelayout %}
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <p class="panel-title">
+            Ajouter une équipe
+        </p>
+    </div>
+    <div class="panel panel-body">
+        {{ form_start(form, {'attr' : {'class': 'form-horizontal'}}) }}
+        <div class="form-group">
+            {{ form_label(form.name, "Nom de l'équipe", {'label_attr' : {'class': 'control-label'}}) }}
+            {{ form_widget(form.name, {'attr' : {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.number, "Numéro de l'équipe", {'label_attr' : {'class': 'control-label'}}) }}
+            {{ form_widget(form.number, {'attr' : {'class' : 'form-control'}}) }}
+        </div>
+        
+        {{ form_widget(form.save, {'label' : "Ajouter l'équipe"}) }}
+        
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">Liste des participants actuels</div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            {% for participant in participants %}
+            <tr><td>{{participant.number}}</td><td>{{ participant.name }}</td></p>
+            {% else %}
+            <tr><td><p class="alert alert-warning">Il n'y a actuellement pas encore de participant</p></td></tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

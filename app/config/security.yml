@@ -1,0 +1,25 @@
+security:
+    providers:
+        in_memory:
+            memory: 
+                users:
+                    admin: { password: adminpassword, roles: ROLE_ADMIN }
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
+            security: false
+
+        default:
+            anonymous: ~
+            http_basic: true
+            
+        admin:
+            pattern: ^/(questions|responses)
+            http_basic: true
+
+    access_control:
+        - { path: ^/(questions|responses), roles: ROLE_ADMIN }
+        
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext

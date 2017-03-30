@@ -1,0 +1,8 @@
+{% extends "JonathanCregutVotingBundle:Default:main_layout.html.twig" %}
+
+{% block insidelayout %}
+<div class="well">
+    <a class="btn btn-lg btn-block btn-success" href="{{ path('questions') }}">Questions</a>
+    <a class="btn btn-lg btn-block btn-primary" href="{{ path('responses') }}">Réponses</a>
+</div>
+{% endblock %}
